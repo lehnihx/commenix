@@ -66,29 +66,39 @@ export const composeCommitMessage = async (
 	bar: vscode.StatusBarItem,
 ): Promise<void> => {
 	const gitExtension = vscode.extensions.getExtension('vscode.git')?.exports
-	if (!gitExtension)
-		return vscode.window.showErrorMessage('Lenix: Git extension not available')
+	if (!gitExtension) {
+		vscode.window.showErrorMessage('Lenix: Git extension not available')
+		return
+	}
 
 	const git = gitExtension.getAPI(1)
-	const repo = git.repositories.find(r: any => r.ui.selected)
-	if (!repo)
-		return vscode.window.showErrorMessage('Lenix: No git repository found')
+	const repo = git.repositories.find((r: any) => r.ui.selected)
+	if (!repo) {
+		vscode.window.showErrorMessage('Lenix: No git repository found')
+		return
+	}
 
-	if (!vscode.workspace.workspaceFolders?.[0])
-		return vscode.window.showErrorMessage('Lenix: No workspace open')
+	if (!vscode.workspace.workspaceFolders?.[0]) {
+		vscode.window.showErrorMessage('Lenix: No workspace open')
+		return
+	}
 
 	await repo.status()
 	const diff = await repo.diff(true)
-	if (!diff)
-		return vscode.window.showErrorMessage('Lenix: No changes staged for commit')
+	if (!diff) {
+		vscode.window.showErrorMessage('Lenix: No changes staged for commit')
+		return
+	}
 
 	const model = vscode.workspace
 		.getConfiguration('lenix')
 		.get<string>('aiModel')
-	if (!model)
-		return vscode.window.showErrorMessage(
+	if (!model) {
+		vscode.window.showErrorMessage(
 			'Lenix: Unexpected: No model selected',
 		)
+		return
+	}
 
 	const apiKey = vscode.workspace
 		.getConfiguration('lenix')
@@ -103,7 +113,7 @@ export const composeCommitMessage = async (
 			diff.slice(0, MAX_DIFF_TOKENS) + '\n... (truncated)'
 		:	diff
 	const branch = repo.state.HEAD?.name ?? ''
-	const files = repo.state.indexChanges.map(c: any => c.uri.fsPath).join('\n')
+	const files = repo.state.indexChanges.map((c: any) => c.uri.fsPath).join('\n')
 
 	try {
 		vscode.window.withProgress(
