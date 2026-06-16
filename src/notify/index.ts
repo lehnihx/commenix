@@ -48,7 +48,7 @@ const report = (racedList: string[], bar: vscode.StatusBarItem) => {
 			`
     Lenix: Models not in local list: ${racedList}.
     Report this issue and it'll be fixed immediately, we promise ;),
-    if you think it takes too long, all you need to do is just copy the issue title: 'AI Models raced' and past it there, that's it :), apreciation!
+    all you need to do is just copy the issue title: 'AI Models raced' and past it there, that's it :), appreciate you!
   `,
 			'Report Issue',
 		)
