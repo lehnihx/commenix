@@ -8,9 +8,9 @@ The AI commit message composer/generator
 
 - Here is a preview of the extension and how it works:
   1. Generate a new commit
-     ![Generate commit](https://raw.githubusercontent.com/lehnhix/commenix/refs/heads/main/assets/img_a.png)
+     ![Generate commit](https://raw.githubusercontent.com/lehnihx/commenix/refs/heads/main/assets/img_a.png)
   2. Review & Commit the changes
-     ![Review and commit](https://raw.githubusercontent.com/lehnhix/commenix/refs/heads/main/assets/img_b.png)
+     ![Review and commit](https://raw.githubusercontent.com/lehnihx/commenix/refs/heads/main/assets/img_b.png)
 
 > Tip: If you are willing to request more often; meaning clicking the generate commit much more than usual, switch to an AI model with more **request credit**.
 
