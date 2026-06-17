@@ -55,7 +55,7 @@ const report = (racedList: string[], bar: vscode.StatusBarItem) => {
 		.then(action => {
 			if (action === 'Report Issue') {
 				vscode.env.openExternal(
-					vscode.Uri.parse('https://github.com/lenixdev/lenix/issues/new'),
+					vscode.Uri.parse('https://github.com/lehnhix/commenix/issues/new'),
 				)
 				bar.backgroundColor = undefined
 				bar.text = '$(edit-sparkle) Lenix'
